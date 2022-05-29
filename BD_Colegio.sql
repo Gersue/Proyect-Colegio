@@ -1,7 +1,7 @@
 CREATE DATABASE Colegio
 GO
 
-USE colegio
+USE Colegio
 GO
 
 CREATE TABLE Usuarios(
@@ -39,15 +39,9 @@ CREATE TABLE Sexo(
 GO
 
 CREATE TABLE Direcciones(
-	id INT PRIMARY KEY IDENTITY(1,1),
+	idDirecciones INT PRIMARY KEY IDENTITY(1,1),
 	barrio NVARCHAR(15),
 	calle VARCHAR(100)
-)
-GO
-
-CREATE TABLE Estados(
-	idestado INT PRIMARY KEY IDENTITY(1,1),
-	fechaIncial DATETIME NOT NULL,
 )
 GO
 
@@ -55,35 +49,43 @@ CREATE TABLE DatosPersonales(
 	idDatosPersonal INT PRIMARY KEY IDENTITY(1,1),
 	nombres VARCHAR(50) NOT NULL,
 	apellidos VARCHAR(50) NOT NULL,
-	nocedula VARCHAR(25) NOT NULL,
+	nocedula VARCHAR(25) unique NOT NULL,
 	telefono VARCHAR(25) NOT NULL,
-	fechaNacimiento VARCHAR(25) NOT NULL,
+	fechaNacimiento DATE NOT NULL,
 	edad INT NOT NULL,
-	idSexo INT NOT NULL,
-	IdDireccion INT NOT NULL,
+	idSexo INT NOT NULL,		---Foreign key
+	IdDireccion INT NOT NULL,	---Foreign key
+	CONSTRAINT FK_sexo FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+	CONSTRAINT FK_Direccion FOREIGN KEY (IdDireccion) REFERENCES Direcciones(idDirecciones)
 )
 GO
 
 CREATE TABLE Padres_Tutor(
 	idPTutor INT PRIMARY KEY IDENTITY(1,1),
 	parentesco VARCHAR(25) NOT NULL,
-	IdDatosPersonales INT NOT NULL
+	IdDatosPersonales INT NOT NULL,
+	CONSTRAINT FK_Datospersonales FOREIGN KEY (IdDatosPersonales) REFERENCES DatosPersonales(idDatosPersonal),
 )
 GO
 
 CREATE TABLE Estudiantes(
 	idEstudiantes INT PRIMARY KEY IDENTITY(1,1),
-	idgrados INT NULL,
-	idTutor_padres INT NOT NULL,
 	correo VARCHAR(50) null,
-	IdEstados INT NOT NULL,   ---Para saber si el estudiante es activo o inactivo
-	IdCentroEstudio INT NOT NULL,
-	iddatosPersonales INT NOT NULL
+	IdEstados INT NOT NULL,			---Para saber si el estudiante es activo o inactivo
+	idgrados INT NULL,				---Foreign key
+	idTutor_padres INT NOT NULL,	---Foreign key
+	IdCentroEstudio INT NOT NULL,	---Foreign key
+	iddatosPersonales INT NOT NULL,	---Foreign key
+	CONSTRAINT FK_grados FOREIGN KEY (Idgrados) REFERENCES Grados(idGrados),
+	CONSTRAINT FK_PadresTutor FOREIGN KEY (idTutor_padres) REFERENCES Padres_Tutor(idPTutor),
+	CONSTRAINT FK_CentroEstudio FOREIGN KEY (IdCentroEstudio) REFERENCES CentrosEstudios(idCentrosE),
+	CONSTRAINT FK_datosPersonale FOREIGN KEY (iddatosPersonales) REFERENCES DatosPersonales(idDatosPersonal)
 )
 GO
 
-CREATE TABLE SECRETARIO(
+CREATE TABLE Secretario(
 	id INT PRIMARY KEY IDENTITY(1,1),
-	idDatosPersonalesSecretario INT NOT NULL
+	idDatosPersonalesSecretario INT NOT NULL,
+	CONSTRAINT FK_datosPersonalesecretario FOREIGN KEY (idDatosPersonalesSecretario) REFERENCES DatosPersonales(idDatosPersonal)
 )
 GO
