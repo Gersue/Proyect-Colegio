@@ -7460,19 +7460,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\_gcruz\\.nuget\\packages\\": {}
+    "C:\\Users\\HanzelxD778\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\_gcruz\\Desktop\\Proyect-Colegio\\WepAPIColegio\\WepAPIColegio\\WepAPIColegio.csproj",
+      "projectUniqueName": "C:\\Users\\HanzelxD778\\Desktop\\projects\\Proyect-Colegio\\WepAPIColegio\\WepAPIColegio\\WepAPIColegio.csproj",
       "projectName": "WepAPIColegio",
-      "projectPath": "C:\\Users\\_gcruz\\Desktop\\Proyect-Colegio\\WepAPIColegio\\WepAPIColegio\\WepAPIColegio.csproj",
-      "packagesPath": "C:\\Users\\_gcruz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\_gcruz\\Desktop\\Proyect-Colegio\\WepAPIColegio\\WepAPIColegio\\obj\\",
+      "projectPath": "C:\\Users\\HanzelxD778\\Desktop\\projects\\Proyect-Colegio\\WepAPIColegio\\WepAPIColegio\\WepAPIColegio.csproj",
+      "packagesPath": "C:\\Users\\HanzelxD778\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HanzelxD778\\Desktop\\projects\\Proyect-Colegio\\WepAPIColegio\\WepAPIColegio\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\_gcruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HanzelxD778\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7535,7 +7540,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
